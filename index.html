@@ -2,28 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css" />
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-database.js"></script>
 </head>
 
 <body>
 
-    <div class="mn">
-        <h2>TODO-APP</h2>
-        <input class="in" placeholder="Enter Todo" type="text" id="todoItem">
-        <button class="btn1" id="btn" onclick="add()">Add</button>
-        <button class="btn1" id="btn" onclick="deleteAll()">Clear</button>
+    <main class="page">
+        <div class="mn">
+            <header class="header">
+                <div class="brand">
+                    <div class="logo" aria-hidden="true">✓</div>
+                    <div class="brandText">
+                        <h2>Todo App</h2>
+                        <p class="subtitle">Stay organized. Get things done.</p>
+                    </div>
+                </div>
+            </header>
 
-        <div class="mn2">
-            <ul id="list">
+            <!-- Keep existing id/class for JS -->
+            <section class="controls" aria-label="Add a todo">
+                <label class="srOnly" for="todoItem">Enter Todo</label>
+                <input class="in" placeholder="Enter Todo..." type="text" id="todoItem" />
 
-            </ul>
+                <div class="actions">
+                    <!-- IMPORTANT: keep id="btn" as-is (even though duplicated) -->
+                    <button class="btn1 btnPrimary" id="btn" onclick="add()" type="button">
+                        <span class="btnIcon" aria-hidden="true">＋</span>
+                        <span>Add</span>
+                    </button>
+
+                    <button class="btn1 btnGhost" id="btn" onclick="deleteAll()" type="button">
+                        <span class="btnIcon" aria-hidden="true">🧹</span>
+                        <span>Clear</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="mn2" aria-label="Todo list">
+                <ul id="list"></ul>
+            </section>
+
+            <footer class="footer">
+                <span class="hint">Tip: Tap “Edit” to update a todo.</span>
+            </footer>
         </div>
-    </div>
+    </main>
+
     <script src="/app.js"></script>
 </body>
 
